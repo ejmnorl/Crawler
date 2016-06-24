@@ -137,18 +137,15 @@ public class Crawler
             {  
                 if (link.charAt(0) == '/'){          	  
                     link = "http://" + pageUrl.getHost() + ":" + pageUrl.getPort() + link;  
-                } 
-                else{
+                } else {
                     String file = pageUrl.getFile();  
                     if (file.indexOf('/') == -1){
                         link = "http://" + pageUrl.getHost() + ":" + pageUrl.getPort() + "/" + link;  
-                    }
-                    else{  
+                    } else {  
                         String path = file.substring(0,file.lastIndexOf('/') + 1);  
                         link = "http://" + pageUrl.getHost() + ":" + pageUrl.getPort() + path + link;  
                     }  
                 }  
-                
             }  
             
             if (link.indexOf('#') != -1)  
@@ -166,11 +163,10 @@ public class Crawler
             
             linkList.add(link);  
         }  
-        
         return (linkList);  
     }  
 
-    /**
+     /**
      * Using HttpClient to download file and analysis the page type
      *
      * @param String url
@@ -254,6 +250,4 @@ public class Crawler
 				f.delete();
 		}
 	}
-    
-    
 }
